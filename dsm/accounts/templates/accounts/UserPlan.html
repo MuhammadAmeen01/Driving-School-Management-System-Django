@@ -1,0 +1,33 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Sidebar 02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static '/css/style.css' %}">
+          <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+
+  </head>
+<body>
+{% include 'accounts/side_navbar.html' %}
+ <div id="content" class="p-4 p-md-5 pt-5">
+         {% if user.plan == "PLan1" %}
+                {% include 'accounts/basic.html' %}
+            {% endif %}
+            {% if user.plan == "Plan2" %}
+                {% include 'accounts/standard.html' %}
+            {% endif %}
+            {% if user.plan == "Plan3" %}
+                {% include 'accounts/premium.html' %}
+            {% endif %}
+
+            </div>
+            </div>
+
+  </body>
+</html>

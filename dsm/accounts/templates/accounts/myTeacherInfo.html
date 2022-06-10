@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<html lang="en">
+<head>
+
+   <link href="{% static '/css/selectplan.css' %}" rel="stylesheet">
+        <link href="{% static '/css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static '/css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static '/css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static '/css/login.css' %}" rel="stylesheet">
+    <link href="{% static '/css/styles1.css' %}" rel="stylesheet">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+{% include 'accounts/side_navbar.html' %}
+
+
+     <div id="content" class="p-4 p-md-5 pt-5">
+              <h2 class="mb-4">Teacher info</h2>
+
+              <div class="card mb-3 p-4 p-md-5 pt-5">
+
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.myteacher.name}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{user.myteacher.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      0{{user.myteacher.phone}}
+                    </div>
+
+                  <hr>
+
+
+
+
+                </div>
+                
+      </div>
+      </div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<html lang="en">
+<head>
+
+   <link href="{% static '/css/selectplan.css' %}" rel="stylesheet">
+        <link href="{% static '/css/fontawesome-all.css' %}" rel="stylesheet">
+    <link href="{% static '/css/swiper.css' %}" rel="stylesheet">
+	<link href="{% static '/css/magnific-popup.css' %}" rel="stylesheet">
+	<link href="{% static '/css/login.css' %}" rel="stylesheet">
+    <link href="{% static '/css/styles1.css' %}" rel="stylesheet">
+    <link href="{% static '/css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+{% include 'accounts/side_navbar.html' %}
+
+
+
+
+
+
+         <div id="content-container" class="container p-none">
+            {% include 'accounts/studentDetail.html' %}
+             <hr>
+
+    <p>MARK ATTENDANCE HERE</p>
+            <form id="login-form" class=".container" method="post"
+                  action="{% url 'MarkAttendance' %}",>
+                {% csrf_token %}
+                <table class="table">
+                    <tr>
+                        <td><label for="attendance_date">DATE</label></td>
+                        <td><input type="date" id="attendance_date" name="AttendanceDate"
+                               value="2022-05-23"
+                               min="2022-05-23" max="2038-12-31">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="status">Status</label></td>
+                        <td><input type="text" id="status" name="Present/Absent" list="stud_status">
+                            <datalist id="stud_status">
+                              <option value="Present">
+                              <option value="Absent">
+                            </datalist>
+                        </td>
+                    </tr>
+                </table>
+                {% for message in messages %}
+
+                    <div class="alert alert-success alert-dismissible fade show">
+                    <strong>Error! </strong>Incorrect inputs
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+                {% endfor %}
+                {% if form.errors %}
+                    <p class=" label label-danger">
+
+                        Please try again.
+                    </p>
+                {% endif %}
+                <input type="submit" name="submit" value="submit"
+                       class="btn btn-primary pull-right" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+
+
+
+
+
+
+
+<script src="{% static '/js/jquery.min.js' %}"></script>
+    <script src="{% static '/js/popper.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js'%}"></script>
+    <script src="{%static '/js/main.js'%}"></script>
+</body>
+</html>
+
+
